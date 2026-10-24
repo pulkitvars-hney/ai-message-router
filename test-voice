@@ -1,0 +1,10 @@
+from media import transcribe_voice
+import pandas as pd
+
+voice_notes = pd.read_csv('dataset/voice_notes.csv')
+
+for i, row in voice_notes.iterrows():
+    print(f"--- {row['voice_note_id']} ---")
+    result = transcribe_voice(row['file_path'])
+    print(f"Transcript: {result}")
+    print()
